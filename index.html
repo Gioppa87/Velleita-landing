@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velleità</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f0f0f 0%, #000000 100%);
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 40px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #333;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            color: #aaa;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .code-form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .code-input {
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            font-size: 1.8rem;
+            background: #111;
+            border: 2px solid #333;
+            color: #fff;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .code-input:focus {
+            border-color: #666;
+            outline: none;
+            transform: scale(1.05);
+        }
+        
+        .submit-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 15px 45px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .submit-btn:hover {
+            background: #e6e6e6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+        }
+        
+        .error-message {
+            color: #ff4d4d;
+            font-size: 1.1rem;
+            height: 30px;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 480px) {
+            .code-input {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">V</div>
+        <h1>VELLEITÀ</h1>
+        <p class="subtitle">Insert the codes from the back of the business card you received</p>
+        
+        <div class="code-form">
+            <input type="text" class="code-input" maxlength="3" id="code1">
+            <input type="text" class="code-input" maxlength="3" id="code2">
+            <input type="text" class="code-input" maxlength="3" id="code3">
+        </div>
+        
+        <button class="submit-btn" onclick="checkCode()">CONTINUE</button>
+        <div class="error-message" id="errorMessage"></div>
+    </div>
+    
+    <div class="footer">© 2025 Velleità. All rights reserved.</div>
+
+    <script>
+        function checkCode() {
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Resetta sempre a "codice non riconosciuto"
+            errorMessage.textContent = "The code entered was not recognized";
+            errorMessage.style.opacity = 1;
+            
+            // Resetta i campi dopo 2 secondi
+            setTimeout(() => {
+                errorMessage.style.opacity = 0;
+                document.getElementById('code1').value = '';
+                document.getElementById('code2').value = '';
+                document.getElementById('code3').value = '';
+            }, 3000);
+        }
+        
+        // Focus automatico sul primo campo
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('code1').focus();
+            
+            // Navigazione automatica tra i campi
+            const inputs = document.querySelectorAll('.code-input');
+            inputs.forEach((input, index) => {
+                input.addEventListener('input', () => {
+                    if (input.value.length === 3 && index < inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
