@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velleità</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
         
         body {
@@ -22,318 +21,127 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Effetto particelle */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            animation: float 15s infinite linear;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) translateX(0);
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px);
-            }
+            background: linear-gradient(135deg, #0f0f0f 0%, #000000 100%);
         }
         
         .container {
-            max-width: 800px;
+            max-width: 600px;
             width: 100%;
-            position: relative;
-            z-index: 2;
-            padding: 60px 40px;
-            background: rgba(15, 15, 15, 0.85);
-            border-radius: 25px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
-        /* Titolo raddoppiato nuovamente */
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 40px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #333;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
         h1 {
-            font-size: 10rem;
-            margin-bottom: 30px;
-            letter-spacing: 8px;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
             font-weight: 300;
-            text-transform: uppercase;
-            position: relative;
-            background: linear-gradient(to right, #ffffff, #cccccc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-            margin-top: 30px;
-            line-height: 1;
         }
         
         .subtitle {
             color: #aaa;
-            margin-bottom: 60px;
-            font-size: 1.6rem;
-            line-height: 1.7;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            line-height: 1.6;
         }
         
         .code-form {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-bottom: 50px;
+            gap: 15px;
+            margin-bottom: 30px;
             flex-wrap: wrap;
         }
         
-        /* Caselle di testo rettangolari */
         .code-input {
-            width: 180px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             text-align: center;
-            font-size: 2.8rem;
+            font-size: 1.8rem;
             background: #111;
             border: 2px solid #333;
             color: #fff;
-            border-radius: 12px;
+            border-radius: 8px;
             transition: all 0.3s;
-            position: relative;
-            font-weight: bold;
-            letter-spacing: 3px;
-            padding: 0 15px;
-        }
-        
-        /* Placeholder personalizzato */
-        .code-input::placeholder {
-            color: #666;
-            font-size: 2.5rem;
-            letter-spacing: normal;
-            font-weight: normal;
         }
         
         .code-input:focus {
-            border-color: #777;
+            border-color: #666;
             outline: none;
-            transform: scale(1.03);
-            box-shadow: 0 0 25px rgba(150, 150, 150, 0.3);
+            transform: scale(1.05);
         }
         
         .submit-btn {
-            background: linear-gradient(to right, #ffffff, #e0e0e0);
+            background: #fff;
             color: #000;
             border: none;
-            padding: 22px 65px;
-            font-size: 1.5rem;
-            border-radius: 45px;
+            padding: 15px 45px;
+            font-size: 1.1rem;
+            border-radius: 30px;
             cursor: pointer;
-            transition: all 0.4s;
-            letter-spacing: 2px;
-            font-weight: 700;
-            position: relative;
-            overflow: hidden;
-            margin-top: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
         
         .submit-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
-            background: linear-gradient(to right, #e6e6e6, #ffffff);
-        }
-        
-        .submit-btn:active {
+            background: #e6e6e6;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.1);
         }
         
         .error-message {
-            color: #ff5555;
-            font-size: 1.5rem;
-            height: 45px;
-            margin-top: 30px;
+            color: #ff4d4d;
+            font-size: 1.1rem;
+            height: 30px;
+            margin-top: 20px;
             opacity: 0;
-            transition: opacity 0.4s;
-            font-weight: 500;
-            letter-spacing: 1px;
+            transition: opacity 0.3s;
         }
         
         .footer {
             position: absolute;
-            bottom: 25px;
+            bottom: 20px;
             width: 100%;
-            color: #666;
-            font-size: 1rem;
-            z-index: 2;
-            letter-spacing: 1px;
-        }
-        
-        .input-label {
-            display: block;
-            margin-bottom: 15px;
-            color: #999;
-            font-size: 1.3rem;
-            letter-spacing: 1px;
+            color: #555;
+            font-size: 0.9rem;
         }
 
-        @media (max-width: 900px) {
-            h1 {
-                font-size: 8rem;
-            }
-            
-            .code-input {
-                width: 150px;
-                height: 70px;
-                font-size: 2.3rem;
-            }
-            
-            .code-input::placeholder {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 6rem;
-            }
-            
-            .container {
-                padding: 50px 30px;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-                margin-bottom: 50px;
-            }
-            
-            .code-form {
-                gap: 15px;
-            }
-            
-            .code-input {
-                width: 130px;
-                height: 65px;
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 4.5rem;
-                letter-spacing: 5px;
-            }
-            
-            .container {
-                padding: 40px 20px;
-                border-radius: 20px;
-            }
-            
-            .subtitle {
-                font-size: 1.2rem;
-                margin-bottom: 40px;
-            }
-            
-            .code-form {
-                gap: 12px;
-                margin-bottom: 40px;
-            }
-            
-            .code-input {
-                width: 100px;
-                height: 60px;
-                font-size: 1.8rem;
-            }
-            
-            .code-input::placeholder {
-                font-size: 1.7rem;
-            }
-            
-            .submit-btn {
-                padding: 18px 50px;
-                font-size: 1.3rem;
-            }
-        }
-        
         @media (max-width: 480px) {
-            h1 {
-                font-size: 3.5rem;
-                margin-bottom: 20px;
-            }
-            
-            .subtitle {
-                font-size: 1.1rem;
-                margin-bottom: 35px;
-            }
-            
-            .code-form {
-                gap: 10px;
-            }
-            
             .code-input {
-                width: 80px;
-                height: 55px;
-                font-size: 1.6rem;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
             }
             
-            .submit-btn {
-                padding: 16px 45px;
-                font-size: 1.2rem;
-            }
-        }
-        
-        .glow {
-            animation: glow 2s infinite alternate;
-        }
-        
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073;
-            }
-            to {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6;
+            h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Effetto particelle -->
-    <div class="particles" id="particles"></div>
-    
     <div class="container">
-        <!-- Logo rimosso -->
+        <div class="logo">V</div>
         <h1>VELLEITÀ</h1>
         <p class="subtitle">Insert the codes from the back of the business card you received</p>
         
         <div class="code-form">
-            <!-- Caselle rettangolari con placeholder personalizzati -->
-            <div class="input-group">
-                <span class="input-label">First Code</span>
-                <input type="text" class="code-input" maxlength="5" id="code1" placeholder="XXXXX">
-            </div>
-            
-            <div class="input-group">
-                <span class="input-label">Second Code</span>
-                <input type="text" class="code-input" maxlength="5" id="code2" placeholder="YYYYY">
-            </div>
-            
-            <div class="input-group">
-                <span class="input-label">Third Code</span>
-                <input type="text" class="code-input" maxlength="5" id="code3" placeholder="ZZZZZ">
-            </div>
+            <input type="text" class="code-input" maxlength="3" id="code1">
+            <input type="text" class="code-input" maxlength="3" id="code2">
+            <input type="text" class="code-input" maxlength="3" id="code3">
         </div>
         
         <button class="submit-btn" onclick="checkCode()">CONTINUE</button>
@@ -343,36 +151,6 @@
     <div class="footer">© 2025 Velleità. All rights reserved.</div>
 
     <script>
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 80;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Posizione casuale
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
-                
-                // Dimensioni casuali
-                const size = Math.random() * 4 + 1;
-                
-                // Animazione personalizzata
-                const duration = Math.random() * 25 + 15;
-                const delay = Math.random() * 5;
-                
-                particle.style.left = `${left}%`;
-                particle.style.top = `${top}%`;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.animationDuration = `${duration}s`;
-                particle.style.animationDelay = `${delay}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
         function checkCode() {
             const errorMessage = document.getElementById('errorMessage');
             
@@ -380,31 +158,29 @@
             errorMessage.textContent = "The code entered was not recognized";
             errorMessage.style.opacity = 1;
             
-            // Animazione di errore
-            errorMessage.classList.add('glow');
-            
             // Resetta i campi dopo 2 secondi
             setTimeout(() => {
                 errorMessage.style.opacity = 0;
                 document.getElementById('code1').value = '';
                 document.getElementById('code2').value = '';
                 document.getElementById('code3').value = '';
-                setTimeout(() => {
-                    errorMessage.classList.remove('glow');
-                }, 500);
             }, 3000);
         }
         
         // Focus automatico sul primo campo
         document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
             document.getElementById('code1').focus();
             
             // Navigazione automatica tra i campi
             const inputs = document.querySelectorAll('.code-input');
             inputs.forEach((input, index) => {
                 input.addEventListener('input', () => {
-                    if (input.value.length === 5 && index < inputs.length - 1) {
+                    if (input.value.length === 3 && index < inputs.length - 1) {
                         inputs[index + 1].focus();
                     }
-            
+                });
+            });
+        });
+    </script>
+</body>
+</html>
