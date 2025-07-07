@@ -9,7 +9,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
         
         body {
@@ -22,6 +21,7 @@
             text-align: center;
             padding: 20px;
             background: linear-gradient(135deg, #0f0f0f 0%, #000000 100%);
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
         }
         
         .container {
@@ -29,34 +29,62 @@
             width: 100%;
         }
         
-        /* Logo container senza bordo e senza sfondo */
-        .logo-container {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 40px;
+        /* Design ispirato al logo Microsoft */
+        .microsoft-brand {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            position: relative;
+            margin-bottom: 40px;
         }
         
-        /* Immagine del logo senza effetti indesiderati */
-        .logo-container img {
-            width: 100%;
-            height: auto;
-            max-height: 100%;
-            object-fit: contain;
-            /* Rimuove eventuali bordi o ombre */
-            border: none;
-            outline: none;
-            box-shadow: none;
+        .microsoft-logo {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 8px;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 25px;
         }
         
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 3px;
+        .square {
+            border-radius: 4px;
+        }
+        
+        .square:nth-child(1) {
+            background: #f25022; /* Rosso Microsoft */
+        }
+        
+        .square:nth-child(2) {
+            background: #7fba00; /* Verde Microsoft */
+        }
+        
+        .square:nth-child(3) {
+            background: #00a4ef; /* Blu Microsoft */
+        }
+        
+        .square:nth-child(4) {
+            background: #ffb900; /* Giallo Microsoft */
+        }
+        
+        .brand-name {
+            font-size: 3.5rem;
             font-weight: 300;
+            letter-spacing: 1px;
+            color: #fff;
+            text-transform: uppercase;
+            position: relative;
+            margin-top: 10px;
+        }
+        
+        .brand-name::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
         }
         
         .subtitle {
@@ -84,6 +112,7 @@
             color: #fff;
             border-radius: 8px;
             transition: all 0.3s;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
         
         .code-input:focus {
@@ -103,6 +132,7 @@
             transition: all 0.3s;
             letter-spacing: 1px;
             font-weight: 600;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
         
         .submit-btn:hover {
@@ -135,25 +165,30 @@
                 font-size: 1.5rem;
             }
             
-            h1 {
-                font-size: 2rem;
+            .brand-name {
+                font-size: 2.5rem;
             }
             
-            .logo-container {
-                width: 130px;
-                height: 130px;
+            .microsoft-logo {
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Contenitore del logo semplificato -->
-        <div class="logo-container">
-            <img src="logo.png" alt="Logo Velleità">
+        <!-- Design ispirato a Microsoft -->
+        <div class="microsoft-brand">
+            <div class="microsoft-logo">
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+            </div>
+            <h1 class="brand-name">VELLEITÀ</h1>
         </div>
         
-        <h1>VELLEITÀ</h1>
         <p class="subtitle">Insert the codes from the back of the business card you received</p>
         
         <div class="code-form">
