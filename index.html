@@ -29,28 +29,27 @@
             width: 100%;
         }
         
+        /* Logo container senza bordo e senza sfondo */
         .logo-container {
             width: 150px;
             height: 150px;
             margin: 0 auto 40px;
-            background: #1a1a1a;
-            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 2px solid #333;
             position: relative;
-            overflow: hidden;
         }
         
+        /* Immagine del logo senza effetti indesiderati */
         .logo-container img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 85%;
-            max-height: 85%;
+            width: 100%;
+            height: auto;
+            max-height: 100%;
             object-fit: contain;
+            /* Rimuove eventuali bordi o ombre */
+            border: none;
+            outline: none;
+            box-shadow: none;
         }
         
         h1 {
@@ -141,15 +140,15 @@
             }
             
             .logo-container {
-                width: 120px;
-                height: 120px;
+                width: 130px;
+                height: 130px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Contenitore del logo con immagine centrata -->
+        <!-- Contenitore del logo semplificato -->
         <div class="logo-container">
             <img src="logo.png" alt="Logo Velleità">
         </div>
