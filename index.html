@@ -41,6 +41,17 @@
             border: 2px solid #333;
             font-weight: bold;
             font-size: 20px;
+            /* Nuove proprietà per contenere l'immagine */
+            overflow: hidden;
+            padding: 10px;
+        }
+        
+        /* Stile per l'immagine del logo */
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Mantiene le proporzioni dell'immagine */
+            border-radius: 50%; /* Mantiene la forma circolare */
         }
         
         h1 {
@@ -129,12 +140,20 @@
             h1 {
                 font-size: 2rem;
             }
+            
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">V</div>
+        <!-- Logo sostituito con l'immagine PNG -->
+        <div class="logo">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" alt="Logo Velleità">
+        </div>
         <h1>VELLEITÀ</h1>
         <p class="subtitle">Insert the codes from the back of the business card you received</p>
         
